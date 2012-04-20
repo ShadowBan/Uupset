@@ -10,3 +10,7 @@ gem 'haml'
 gem 'dalli'
 gem 'nokogiri'
 gem 'uglifier'
+
+group :production do
+  gem "pg"
+end
