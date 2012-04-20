@@ -9,3 +9,4 @@ gem "heroku"
 gem 'haml'
 gem 'dalli'
 gem 'nokogiri'
+gem 'uglifier'
