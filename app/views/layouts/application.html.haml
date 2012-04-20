@@ -1,11 +1,9 @@
 %html
   %head
     %link{:rel=>"shortcut icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
-    %title Awfulnauts Guild
-    %link{:href=>"/stylesheets/awfulnauts.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
-    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"}
-    %script{:src => "/javascripts/galleria/galleria-1.2.6.min.js"}
-    %script{:src => "/javascripts/galleria/plugins/flickr/galleria.flickr.min.js"}
+    %title You Upset?
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
   %body
     #header
       #logo
@@ -20,14 +18,11 @@
       #top-nav
         %ul
           %li
-            %a{:href=>"http://www.turntable.fm/awfulnauts_swtor_guild",:target=>"_blank"}="Guild turntable"
+            = link_to "Guild Turntable", "http://www.turntable.fm/awfulnauts_swtor_guild", :target=>"_blank"
           %li
-            %a{:href=>"http://reddit.awfulnauts.com",:target=>"_blank"}="Guild Reddit"
+            = link_to "Guild Reddit", "http://reddit.awfulnauts.com", :target=>"_blank" 
           %li
-            %a{:href=>"https://docs.google.com/spreadsheet/ccc?key=0Am_PtHuFO_BXdFcxZlRnLURMdUZMSUtXdk5BcWo3eWc#gid=0",:target=>"_blank"}="Guild Crafting List"
-          %li
-            %a{:href=>"/sk"}="SK Tool"
-
+            = link_to "Guild Crafting List", "https://docs.google.com/spreadsheet/ccc?key=0Am_PtHuFO_BXdFcxZlRnLURMdUZMSUtXdk5BcWo3eWc#gid=0", :target=>"_blank"
         .clear
     #wrap
       #main-body

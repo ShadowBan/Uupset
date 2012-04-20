@@ -1,3 +1,4 @@
+require 'rss'
 class HomeController < ApplicationController
   def index
     #  @gamebreaker = Rss.get_gamebreaker

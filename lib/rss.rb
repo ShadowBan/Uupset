@@ -12,7 +12,7 @@ class Rss
     data[:link] = newest.xpath('link').text 
     data[:pubdate] = Date.parse(newest.xpath('pubDate').text).to_s rescue nil
     data[:last_update] = (Date.today - Date.parse(newest.xpath('pubDate').text)).to_i rescue nil
-    settings.cache.set('gamebreaker', data, 3600)
+    Rails.cache.write('gamebreaker', data, {:expires_in => 3600})
     data
   end
 
@@ -25,7 +25,7 @@ class Rss
     data[:image_url] = doc.xpath('//image/url').text
     data[:pubdate] = Date.parse(newest.xpath('pubDate').text).to_s rescue nil
     data[:last_update] = (Date.today - Date.parse(newest.xpath('pubDate').text)).to_i rescue nil
-    settings.cache.set('darthhater_cast', data, 3600)
+    Rails.cache.write('darthhater_cast', data, {:expires_in => 3600})
     data
   end
 
@@ -40,7 +40,7 @@ class Rss
       data[:url] = item.xpath('link').text
       pfeed << data
     end
-    settings.cache.set('darthhater', pfeed, 3600)
+    Rails.cache.write('darthhater', pfeed, {:expires_in => 3600})
     pfeed
   end
 
@@ -54,29 +54,29 @@ class Rss
       data[:url] = item.xpath('link').text
       pfeed << data
     end
-    settings.cache.set('devtracker', pfeed, 3600)
+    Rails.cache.write('devtracker', pfeed, {:expires_in => 3600})
     pfeed
   end
 
   def self.update_guild_twitter
-    settings.cache.set('guild_twitter', '')
+    Rails.cache.write('guild_twitter', '')
   end
 
   def self.update_guild_reddit
-    settings.cache.set('guild_reddit', '')
+    Rails.cache.write('guild_reddit', '')
   end
 
   def self.update_swtor_reddit
-    settings.cache.set('swtor_reddit', '')
+    Rails.cache.write('swtor_reddit', '')
   end
 
   def self.get_feed(feed)
-    data = settings.cache.get(feed)
+    data = Rails.cache.read(feed)
     data = send("update_#{feed}") if data.nil?
     data
   end
 
   def self.expire_cache
-    settings.cache.flush
+    Rails.cache.flush
   end
 end
