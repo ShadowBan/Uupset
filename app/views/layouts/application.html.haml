@@ -1,31 +1,111 @@
-%html
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %link{:rel=>"shortcut icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
-    %title You Upset?
+    %title YOU UPSET?
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
+    /[if IE 7]
+      <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    /[if IE 8]
+      <link rel="stylesheet" type="text/css" href="css/ie.css" />
+
+    
   %body
-    #header
-      #logo
-        %pre
-          :preserve
-               _____            _____     .__                        __          
-              /  _  \__  _  ___/ ____\_ __|  |   ____ _____   __ ___/  |_  ______
-             /  /_\  \ \/ \/ /\   __\  |  \  |  /    \\__  \ |  |  \   __\/  ___/
-            /    |    \     /  |  | |  |  /  |_|   |  \/ __ \|  |  /|  |  \___ \ 
-            \____|__  /\/\_/   |__| |____/|____/___|  (____  /____/ |__| /____  >
-                    \/                              \/     \/                 \/  
-      #top-nav
-        %ul
-          %li
-            = link_to "Guild Turntable", "http://www.turntable.fm/awfulnauts_swtor_guild", :target=>"_blank"
-          %li
-            = link_to "Guild Reddit", "http://reddit.awfulnauts.com", :target=>"_blank" 
-          %li
-            = link_to "Guild Crafting List", "https://docs.google.com/spreadsheet/ccc?key=0Am_PtHuFO_BXdFcxZlRnLURMdUZMSUtXdk5BcWo3eWc#gid=0", :target=>"_blank"
-        .clear
+    .wrapper
+      /
+        class="leftPanel" this div contain left panle and its Static
+        class="leftPanel_inner" this div contain background of left panel
+        class="leftPanel_inner_border" this div contain right border of left panel
+      .leftPanel
+        .leftPanel_inner
+          .leftPanel_inner_border
+            .logo_container
+              = image_tag 'light_dark/fist.png', :style=>"height:144px"
+            %p.intro_text
+              We are Industry.  Do Work!
+            / //////////////////////////////////////////// Left Navigation Start ////////////////////////////////////////////////////
+            %ul.nav_bar
+              / <li><a><span> use these these tags for every menu item
+              %li.active_link
+                %a{:href => "#page_Home"}
+                  %span Home
+              %li
+                %a{:href => "#page_LatestProjects"}
+                  %span Latest Projects
+              %li
+                %a{:href => "#page_About"}
+                  %span About The Industry
+              %li
+                %a{:href => "#page_Services"}
+                  %span Services (What we can do)
+              %li
+                %a{:href => "#page_Portfolio"}
+                  %span Portfolio (What we did)
+              %li
+                %a{:href => "#page_Blog"}
+                  %span Blog (what we thinking...!)
+              %li
+                %a{:href => "#page_GetIntouch"}
+                  %span Get Intouch
+            / ///////////////////////////////////////////// Left Navigation End /////////////////////////////////////////////////////
+            .socialIcon
+              / there are 40 social bookmark icons you can use as many as you want all 40 are listed below with there classes
+              %a.reddit{:href => "javascript:void(0)", :title => "reddit"}
+                %span
+              %a.twitter2{:href => "javascript:void(0)", :title => "twitter"}
+                %span
+              %a.facebook{:href => "javascript:void(0)", :title => "facebook"}
+                %span
+              %a.rss{:href => "javascript:void(0)", :title => "rss"}
+                %span
+              %a.lastfm{:href => "javascript:void(0)", :title => "lastfm"}
+                %span
+              
+              /
+                List of all avilable icons you can use these
+                
+                
+                <a class="aim" title="aim" href="javascript:void(0)"><span></span></a>
+                <a class="amazon" title="amazon" href="javascript:void(0)"><span></span></a>
+                <a class="buzzyahoo" title="buzzyahoo" href="javascript:void(0)"><span></span></a>
+                <a class="delicious" title="delicious" href="javascript:void(0)"><span></span></a>
+                <a class="deviantart" title="deviantart" href="javascript:void(0)"><span></span></a>
+                <a class="digg1" title="digg" href="javascript:void(0)"><span></span></a>
+                <a class="dribble" title="dribble" href="javascript:void(0)"><span></span></a>
+                <a class="flickr" title="flickr" href="javascript:void(0)"><span></span></a>
+                <a class="fffound" title="ffound" href="javascript:void(0)"><span></span></a>
+                <a class="fireeagle" title="fireeagle" href="javascript:void(0)"><span></span></a>
+                <a class="googletalk" title="googletalk" href="javascript:void(0)"><span></span></a>
+                <a class="itunes" title="itunes" href="javascript:void(0)"><span></span></a>
+                <a class="lastfm" title="lastfm" href="javascript:void(0)"><span></span></a>
+                <a class="google" title="google" href="javascript:void(0)"><span></span></a>
+                <a class="messendertahoo" title="messenger yahoo" href="javascript:void(0)"><span></span></a>
+                <a class="messenger" title="messenger" href="javascript:void(0)"><span></span></a>
+                <a class="myspace" title="myspace" href="javascript:void(0)"><span></span></a>
+                <a class="netvibes" title="netvibes" href="javascript:void(0)"><span></span></a>
+                <a class="openid" title="openid" href="javascript:void(0)"><span></span></a>
+                <a class="orkut" title="orkut" href="javascript:void(0)"><span></span></a>
+                <a class="picasa" title="picasa" href="javascript:void(0)"><span></span></a>
+                
+                <a class="shareit" title="shareit" href="javascript:void(0)"><span></span></a>
+                <a class="skype" title="skype" href="javascript:void(0)"><span></span></a>
+                <a class="stumbleupon" title="stumbleupon" href="javascript:void(0)"><span></span></a>
+                <a class="technorati" title="technorati" href="javascript:void(0)"><span></span></a>
+                <a class="tumbrl" title="tumbrl" href="javascript:void(0)"><span></span></a>
+                <a class="twitter" title="twitter" href="javascript:void(0)"><span></span></a>
+                <a class="upcoming" title="upcoming" href="javascript:void(0)"><span></span></a>
+                <a class="vcard" title="vcard" href="javascript:void(0)"><span></span></a>
+                <a class="vimeo" title="vimeo" href="javascript:void(0)"><span></span></a>
+                <a class="wikipedia" title="wikipedia" href="javascript:void(0)"><span></span></a>
+                <a class="yahoo" title="yahoo" href="javascript:void(0)"><span></span></a>
+                <a class="yelp" title="yelp" href="javascript:void(0)"><span></span></a>
+                <a class="youtube" title="youtube" href="javascript:void(0)"><span></span></a>
+      .rightPanel
+        .rightPannelInner
     #wrap
       #main-body
-        = yield
+        =#  yield
       #footer
         .ads 

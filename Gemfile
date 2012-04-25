@@ -10,6 +10,7 @@ gem 'haml'
 gem 'dalli'
 gem 'nokogiri'
 gem 'uglifier'
+gem 'therubyracer'
 
 group :production do
   gem "pg"

@@ -1,0 +1,24 @@
+/*
+	File Descriotion: 
+	This file will be used only in IE browsers html have condition for this file othere browser will not load this file
+
+*/
+
+
+/* ----------------------1. Layout -------------------------------------------------------------- */
+
+
+
+.btn_silver
+	{
+
+	border: 1px solid #D8D8D8 !important;
+	
+	}
+
+
+.sml input[type="button"], .sml input[type="reset"], .sml input[type="submit"] {
+	
+	border: 1px solid #D8D8D8 !important;
+
+	}
