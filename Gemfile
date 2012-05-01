@@ -11,6 +11,7 @@ gem 'dalli'
 gem 'nokogiri'
 gem 'uglifier'
 gem 'therubyracer'
+gem 'devise'
 
 group :production do
   gem "pg"

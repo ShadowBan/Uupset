@@ -1,0 +1,49 @@
+.leftPanel_inner
+  .leftPanel_inner_border
+    .logo_container
+      = image_tag 'light_dark/fist.png', :style=>"height:200px"
+    %p.intro_text
+      We are Industry.  Do Work!
+    / //////////////////////////////////////////// Left Navigation Start ////////////////////////////////////////////////////
+    %ul.nav_bar
+      %li.active_link
+        %a{:href => "#home"}
+          %span Home
+      %li
+        %a{:href => "#news"}
+          %span Industry News
+      %li
+        %a{:href => "#events"}
+          %span Industry Events
+      %li
+        %a{:href => "#roster"}
+          %span In The Industry
+      %li
+        %a{:href => "#application"}
+          %span Industry Application
+      %li
+        %a{:href => "#gw_news"}
+          %span Guild Wars News
+
+    / ///////////////////////////////////////////// Left Navigation End /////////////////////////////////////////////////////
+    .socialIcon
+      %a.turntable{:href => "http://www.turntable.fm/the_industry_gw2", :target=>"_blank", :title => "turntable"}
+        %span
+      %a.reddit{:href => "http://www.reddit.com/r/theindustry", :target=>"_blank", :title => "reddit"}
+        %span
+      /
+        %a.twitter2{:href => "javascript:void(0)", :title => "twitter"}
+          %span
+        %a.facebook{:href => "javascript:void(0)", :title => "facebook"}
+          %span
+        %a.rss{:href => "javascript:void(0)", :title => "rss"}
+          %span
+
+    -unless current_user
+      #left_login{:style=>"position:fixed;margin-bottom:10px;bottom:0;"}
+        %h2 Sign in
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          = hidden_field_tag "user[remember_me]", 1
+          = f.email_field :email, :style=>"width:175px;"
+          = f.password_field :password, :style=>"width:175px; margin-right:25px;"
+          = f.submit "Submit this", :style=>"position: absolute; left: -9999px; width: 1px; height: 1px;"

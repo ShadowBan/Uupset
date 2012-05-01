@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %link{:rel=>"shortcut icon", :href=>"/images/favicon.ico", :type=>"image/x-icon"}
-    %title YOU UPSET?
+    %title Knowledge is forever.
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     /[if IE 7]
@@ -13,48 +13,14 @@
 
     
   %body
+    .notices
+      .notice= notice
+      .alert= alert
     .wrapper
       .leftPanel
-        .leftPanel_inner
-          .leftPanel_inner_border
-            .logo_container
-              = image_tag 'light_dark/fist.png', :style=>"height:200px"
-            %p.intro_text
-              We are Industry.  Do Work!
-            / //////////////////////////////////////////// Left Navigation Start ////////////////////////////////////////////////////
-            %ul.nav_bar
-              %li.active_link
-                %a{:href => "#home"}
-                  %span Home
-              %li
-                %a{:href => "#news"}
-                  %span Industry News
-              %li
-                %a{:href => "#events"}
-                  %span Industry Events
-              %li
-                %a{:href => "#roster"}
-                  %span In The Industry
-              %li
-                %a{:href => "#application"}
-                  %span Industry Application
-              %li
-                %a{:href => "#gw_news"}
-                  %span Guild Wars News
-            / ///////////////////////////////////////////// Left Navigation End /////////////////////////////////////////////////////
-            .socialIcon
-              %a.turntable{:href => "http://www.turntable.fm/the_industry_gw2", :target=>"_blank", :title => "turntable"}
-                %span
-              %a.reddit{:href => "http://www.reddit.com/r/theindustry", :target=>"_blank", :title => "reddit"}
-                %span
-              /
-                %a.twitter2{:href => "javascript:void(0)", :title => "twitter"}
-                  %span
-                %a.facebook{:href => "javascript:void(0)", :title => "facebook"}
-                  %span
-                %a.rss{:href => "javascript:void(0)", :title => "rss"}
-                  %span
+        =render "shared/left_side"
               
       .rightPanel
         .rightPannelInner
           =yield
+      .clear
