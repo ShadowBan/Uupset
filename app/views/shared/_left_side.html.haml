@@ -44,6 +44,6 @@
         %h2 Sign in
         = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
           = hidden_field_tag "user[remember_me]", 1
-          = f.email_field :email, :style=>"width:175px;"
-          = f.password_field :password, :style=>"width:175px; margin-right:25px;"
+          = f.email_field :email, :style=>"width:150px;"
+          = f.password_field :password, :style=>"width:150px;"
           = f.submit "Submit this", :style=>"position: absolute; left: -9999px; width: 1px; height: 1px;"
