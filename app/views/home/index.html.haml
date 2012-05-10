@@ -21,7 +21,7 @@
   %br/
   %br/
   %p.padding2
-    cocks.... cocks everywhere **waves arm** <deal with it>
+    ="..."
   .page_saperator
 
 #news.page_section
@@ -38,8 +38,49 @@
   .page_seperator
 
 #application.page_section
+  /
+    %h2 Sign up
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      %div
+        = f.label "Email: *"
+        %br/
+        = f.email_field :email
+      %div
+        = f.label "Password: *"
+        %br/
+        = f.password_field :password
+      %div
+        = f.label "Password Confirmation: *"
+        %br/
+        = f.password_field :password_confirmation
+      %div
+        = f.label "How many years have you been a 'Gamer'?"
+        %br/
+        = f.text_field :gamer_age
+      %div
+        = f.label "Do you use Steam / Social Media websites?"
+        %br/
+        = f.text_field :socialize
+      %div.hidden
+        = f.label "Are you willing to share your info with your guild mates?"
+        %br/
+        = f.label "Steam"
+        = f.text_field :steam
+        %br/
+        = f.label "Facebook"
+        = f.text_field :facebook
+        %br/
+        = f.label "Twitter"
+        = f.text_field :twitter
+      %div
+        = f.label "What kind of content do you prefer to play in MMO's?"
+        %br/
+        = #f.association :groups, :as => :check_boxes
+        
+      %div= f.submit "Submit Application"
 
-  .page_seperator
+.page_saperator
 
 #gw_news.page_section
   /
