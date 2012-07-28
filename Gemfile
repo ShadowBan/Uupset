@@ -14,5 +14,5 @@ gem 'therubyracer'
 gem 'devise'
 
 group :production do
-  gem "pg"
+  #gem "pg"
 end
