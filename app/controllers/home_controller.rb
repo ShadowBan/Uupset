@@ -1,16 +1,11 @@
 require 'rss'
 class HomeController < ApplicationController
   def index
-    #  @gamebreaker = Rss.get_gamebreaker
-    #  @darth_cast = Rss.get_darthhater_cast
 
-    @gamebreaker = Rss.get_feed('gamebreaker')
-    @darth_cast = Rss.get_feed('darthhater_cast')
-    @darthhater = Rss.get_feed('darthhater')
-    @devtracker = Rss.get_feed('devtracker')
-    @guild_twitter = Rss.get_feed('guild_twitter')
+    @guild_cast = Rss.get_feed('guild_cast')
+    @wooden = Rss.get_feed('wooden_cast')
     @guild_reddit = Rss.get_feed('guild_reddit')
-    @swtor_reddit = Rss.get_feed('swtor_reddit')
+    @guild_wars_reddit = Rss.get_feed('gw2_reddit')
   end
 
   def slideshow
