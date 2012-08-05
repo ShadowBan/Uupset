@@ -102,7 +102,7 @@ namespace :deploy do
 
   task :finalize_update, :except => { :no_release => true } do
     run "chmod -R g+w #{latest_release}" if fetch(:group_writable, true)
-
+    run "chown -R chris:devs #{latest_release}" if fetch(:group_writable, true)
     # mkdir -p is making sure that the directories are there for some SCM's that don't
     # save empty folders
     run <<-CMD
