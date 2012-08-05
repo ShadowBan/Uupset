@@ -1,6 +1,7 @@
 # config/deploy.rb 
 require "bundler/capistrano"
 require './config/boot'
+load 'deploy/assets'
 
 set :scm,             :git
 set :repository,      "git@github.com:rubyalchemist/Uupset.git"
