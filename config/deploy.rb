@@ -31,10 +31,10 @@ set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEA
 default_environment["RAILS_ENV"] = 'production'
 
 # Use our ruby-1.9.2-p290@my_site gemset
-default_environment["PATH"]         = "/usr/local/rvm/gems/ruby-1.9.3-p125@uupset/bin:/usr/local/rvm/gems/ruby-1.9.3-p125@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-p125/bin:/usr/local/rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
-default_environment["GEM_HOME"]     = "/usr/local/rvm/gems/ruby-1.9.3-p125@uupset"
-default_environment["GEM_PATH"]     = "/usr/local/rvm/gems/ruby-1.9.3-p125@uupset:/usr/local/rvm/gems/ruby-1.9.3-p125@global"
-default_environment["RUBY_VERSION"] = "ruby-1.9.3-p125"
+default_environment["PATH"]         = "/usr/local/rvm/gems/ruby-1.9.3-p194@uupset/bin:/usr/local/rvm/gems/ruby-1.9.3-p194@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-p194/bin:/usr/local/rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+default_environment["GEM_HOME"]     = "/usr/local/rvm/gems/ruby-1.9.3-p194@uupset"
+default_environment["GEM_PATH"]     = "/usr/local/rvm/gems/ruby-1.9.3-p194@uupset:/usr/local/rvm/gems/ruby-1.9.3-p194@global"
+default_environment["RUBY_VERSION"] = "ruby-1.9.3-p194"
 
 default_run_options[:shell] = 'bash'
 
