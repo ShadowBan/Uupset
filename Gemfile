@@ -3,6 +3,8 @@ gem 'rails', '3.2'
 gem 'mysql2'
 gem 'jquery-rails'
 
+gem 'unicorn'
+
 gem "capistrano", '= 2.9.0'
 #gem "heroku"
 
