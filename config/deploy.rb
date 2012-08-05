@@ -65,7 +65,7 @@ namespace :deploy do
     dirs = [deploy_to, shared_path]
     dirs += shared_children.map { |d| File.join(shared_path, d) }
     dirs << "/var/web/industry/shared/tmp/sockets"
-    run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')} && chgrp devs #{dirs.join(' ')}"
+    run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')} && chgrp deploy #{dirs.join(' ')}"
     run "git clone #{repository} #{current_path}"
     run "cp #{current_path}/config/_database.yml #{shared_path}/database.yml"
   end
@@ -115,7 +115,7 @@ namespace :deploy do
       ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml
     CMD
     #ln -s #{shared_path}/log #{latest_release}/log &&
-    run "chown -R chris:devs #{latest_release}" if fetch(:group_writable, true)
+    run "chown -R chris:deploy #{latest_release}" if fetch(:group_writable, true)
 
     if fetch(:normalize_asset_timestamps, true)
       stamp = Time.now.utc.strftime("%Y%m%d%H%M.%S")
