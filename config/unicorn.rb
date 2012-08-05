@@ -5,7 +5,7 @@ shared_path = '/var/web/industry/shared'
 
 rails_env = ENV['RAILS_ENV'] || 'production'
 
-worker_processes 4
+worker_processes 1
 
 preload_app true
 
