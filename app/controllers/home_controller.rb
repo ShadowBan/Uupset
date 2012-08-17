@@ -19,6 +19,6 @@ class HomeController < ApplicationController
 
   def expire
     Rss.expire_cache
-    #redirect '/'
+    redirect_to '/'
   end
 end
