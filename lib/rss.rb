@@ -31,7 +31,7 @@ class Rss
 
   #### News Feeds ####
   def self.update_guild_twitter
-    doc = Nokogiri::XML(open("http://www.reddit.com/r/theindustry.rss"))
+    doc = Nokogiri::XML(open("http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=_theindustry"))
     items = doc.xpath('//item')
     pfeed = []
     items.each do |item|
@@ -40,7 +40,7 @@ class Rss
       data[:url] = item.xpath('link').text
       pfeed << data
     end
-    Rails.cache.write('guild_reddit', pfeed, {:expires_in => 3600})
+    Rails.cache.write('guild_twitter', pfeed, {:expires_in => 3600})
     pfeed
   end
 

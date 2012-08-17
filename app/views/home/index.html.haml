@@ -16,15 +16,21 @@
   .page_saperator
 
 #news.page_section
+  #guild-twitter.left.news
+    %h1.section-title="Guild News"
+    %ul
+      -@guild_twitter.each do |t|
+        %li
+          %a{:href=>t[:url]}= t[:title]
+
   #guild-reddit.left.news
     %h1.section-title="Guild Reddit"
     %ul
       - @guild_reddit.each do |n|
         %li
           %a{:href=>n[:url]}= n[:title]
-          
-  #guild-twitter.left.news
 
+  .clear
   .page_saperator
 
 #events.page_section
@@ -82,17 +88,9 @@
 .page_saperator
 
 #gw_news.page_section
-  /
-    #guild-news.left
-    %h1="Guild News"
-    #twitter.left.news
-      %h1="Twitter"
-    #reddit.left.news
-      %h1="Reddit"
-    .clear
 
   #game-news.left
-    #guild-wars-reddit.left.news
+    #guild-wars-reddit.left.feed
       %h1.section-title="Guild Wars 2 Reddit"
       %ul
         -@guild_wars_reddit[0..9].each do |n|
