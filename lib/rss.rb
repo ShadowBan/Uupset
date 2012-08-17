@@ -80,6 +80,6 @@ class Rss
   end
 
   def self.expire_cache
-    Rails.cache.flush
+    Rails.cache.clear
   end
 end
