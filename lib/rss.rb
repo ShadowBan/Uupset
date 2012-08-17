@@ -40,7 +40,7 @@ class Rss
       data[:url] = item.xpath('link').text
       pfeed << data
     end
-    Rails.cache.write('guild_twitter', pfeed, {:expires_in => 3600})
+    Rails.cache.write('guild_twitter', pfeed, {:expires_in => 180})
     pfeed
   end
 
@@ -55,7 +55,7 @@ class Rss
       data[:url] = item.xpath('link').text
       pfeed << data
     end
-    Rails.cache.write('guild_reddit', pfeed, {:expires_in => 3600})
+    Rails.cache.write('guild_reddit', pfeed, {:expires_in => 180})
     pfeed
   end
 
@@ -69,7 +69,7 @@ class Rss
       data[:url] = item.xpath('link').text
       pfeed << data
     end
-    Rails.cache.write('gw2_reddit', pfeed, {:expires_in => 3600})
+    Rails.cache.write('gw2_reddit', pfeed, {:expires_in => 1800})
     pfeed
   end
 
