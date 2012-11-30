@@ -45,54 +45,62 @@
   %iframe{:frameborder => "0", :height => "600", :scrolling => "no", :src => "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&height=600&wkst=1&bgcolor=%23FFFFFF&src=hmfm88qi2pf834264ie43ink14%40group.calendar.google.com&color=%232F6309&ctz=America%2FLos_Angeles", :style => " border-width:0 ", :width => "960"}
   .page_saperator
 
-#roster.page_section
-
-  .page_saperator
-
-#application.page_section
-  /
-    %h2 Sign up
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+/
+  #roster.page_section
+    .page_saperator
+/
+  #application.page_section
+    %h1.section-title Apply To The Industry
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"fancy_form"}) do |f|
       = devise_error_messages!
-      %div
+      %div.form_field
         = f.label "Email: *"
         %br/
         = f.email_field :email
-      %div
+      %div.form_field
         = f.label "Password: *"
         %br/
         = f.password_field :password
-      %div
+      %div.form_field
         = f.label "Password Confirmation: *"
         %br/
         = f.password_field :password_confirmation
-      %div
+      %div.form_field
         = f.label "How many years have you been a 'Gamer'?"
         %br/
-        = f.text_field :gamer_age
-      %div
-        = f.label "Do you use Steam / Social Media websites?"
-        %br/
-        = f.text_field :socialize
-      %div.hidden
-        = f.label "Are you willing to share your info with your guild mates?"
-        %br/
-        = f.label "Steam"
-        = f.text_field :steam
-        %br/
-        = f.label "Facebook"
-        = f.text_field :facebook
-        %br/
-        = f.label "Twitter"
-        = f.text_field :twitter
-      %div
+        = f.select :gamer_age, options_for_select((0..60))
+      %div.form_field
         = f.label "What kind of content do you prefer to play in MMO's?"
         %br/
-        = #f.association :groups, :as => :check_boxes
+        -Group.all.each do |g|
+          %label
+            =check_box_tag "user[group_ids][]", g.id, false
+            =g.name
+      %div.form_field
+        = f.label "Avatar:"
+        %br/
+        =f.text_field :avatar
+      %div.form_field
+        %br/
+        = f.label "Steam Name:"
+        %br/
+        = f.text_field :steam
+        %br/
+        = f.label "Facebook URL:"
+        %br/
+        = f.text_field :facebook
+        %br/
+        = f.label "Twitter URL:"
+        %br/
+        = f.text_field :twitter
+      %div.form_field
+        = f.check_box :socialize, {:checked=>true},1,0
+        = f.label :socialize,"I Would like to share social information on the guild roster."
         
-      %div= f.submit "Submit Application"
+      %div.form_field
+        =f.submit "Submit Application"
 
-.page_saperator
+  .page_saperator
 
 #gw_news.page_section
 

@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508065958) do
+ActiveRecord::Schema.define(:version => 20120820063820) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -38,9 +44,18 @@ ActiveRecord::Schema.define(:version => 20120508065958) do
     t.integer  "timezone"
     t.text     "silly_answer"
     t.text     "additional_info"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "users_groups", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+  end
+
+  add_index "users_groups", ["group_id", "user_id"], :name => "index_users_groups_on_group_id_and_user_id"
+  add_index "users_groups", ["user_id", "group_id"], :name => "index_users_groups_on_user_id_and_group_id"
 
 end
